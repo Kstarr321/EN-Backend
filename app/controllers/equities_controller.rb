@@ -1,0 +1,2 @@
+class EquitiesController < ApplicationController
+end
