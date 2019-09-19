@@ -1,4 +1,4 @@
-require_relative '/Users/kstarr/final_project/Forex_Trader/backend/config/api.rb'
+require_relative '/Users/kstarr/final_project/Forex_Trader/rails-api/config/api.rb'
 
 class ApiController < ApplicationController
 
@@ -28,3 +28,4 @@ class ApiController < ApplicationController
         result = Fetch.get(route)
         render json: result
     end 
+end 
