@@ -3,9 +3,10 @@ require_relative '/Users/kstarr/final_project/Forex_Trader/rails-api/config/api.
 class ApiController < ApplicationController
 
     def single
-        symbol = "AAPL" # test case 
+        symbol = params["ticker"] # test case 
         route = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=#{symbol}&apikey="
         result = Fetch.get(route)
+        # byebug
         render json: result
     end 
 
@@ -16,9 +17,26 @@ class ApiController < ApplicationController
     end 
     
     def daily 
-        symbol = "AAPL" #test case 
-        route = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{symbol}&apikey="
+        symbol = params["ticker"] #test case 
+        route = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{symbol}&outputsize=full&apikey="
         result = Fetch.get(route)
+        render json: result
+    end 
+
+    def intraday
+        symbol = params["ticker"]
+        route = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=#{symbol}&interval=5min&&apikey="
+        result = Fetch.get(route)
+        render json: result
+    end 
+
+    def indicator
+        indicator = params['indicator']
+        symbol = params['symbol']
+        # byebug
+        route = "https://www.alphavantage.co/query?function=#{indicator}&symbol=#{symbol}&interval=5min&time_period=100&series_type=close&apikey="
+        result = Fetch.get(route)
+        # byebug
         render json: result
     end 
 

@@ -14,10 +14,15 @@ Rails.application.routes.draw do
   end
 
 
+  get '/news/general', to: 'news#general'
 
-  get '/quote/single', to: 'api#single'
+
+
+  post '/quote/single', to: 'api#single'
   get '/quote/sectors', to: 'api#sectors'
-  get '/quote/daily', to: 'api#daily'
-  get '/quote/search', to: 'api#search'
+  post '/quote/daily', to: 'api#daily'
+  post '/quote/search', to: 'api#search'
+  post '/quote/intraday', to: 'api#intraday'
+  post '/quote/indicator', to: 'api#indicator'
   
 end
