@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/quote/sectors', to: 'api#sectors'
   post '/quote/daily', to: 'api#daily'
   post '/quote/search', to: 'api#search'
-  post '/quote/intraday', to: 'api#intraday'
-  post '/quote/indicator', to: 'api#indicator'
+  post '/quote/intraday', to: 'api#intraday' 
+  get '/quote/featured', to: 'api#featured'
   
 end

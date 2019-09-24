@@ -33,12 +33,16 @@ class ApiController < ApplicationController
     def indicator
         indicator = params['indicator']
         symbol = params['symbol']
-        # byebug
         route = "https://www.alphavantage.co/query?function=#{indicator}&symbol=#{symbol}&interval=5min&time_period=100&series_type=close&apikey="
         result = Fetch.get(route)
-        # byebug
         render json: result
     end 
+
+    def featured 
+        stocks = Fetch.featured
+        render json: stocks
+    end 
+
 
     def search
         keywords = "Microsoft" #test case 
@@ -46,4 +50,8 @@ class ApiController < ApplicationController
         result = Fetch.get(route)
         render json: result
     end 
+
+
+
+
 end 
