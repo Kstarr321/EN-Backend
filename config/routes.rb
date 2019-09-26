@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/news/general', to: 'news#general'
 
 
-
+  post '/quote/indicator', to: 'api#indicator'
   post '/quote/single', to: 'api#single'
   get '/quote/sectors', to: 'api#sectors'
   post '/quote/daily', to: 'api#daily'
